@@ -5,14 +5,13 @@
 #      所有傳入的字都是小寫。
 
 def highestScoreWord(input) 
-
     # 實作寫在這裡
-    chars = input.split(" ")
-    scores = chars.map { |word| word.chars.sum { |word| word.ord } }
-    max_scores = scores.max
-    max_word = chars[scores.index(max_scores)]
-    
-    return  max_word
+    word = input.split(" ")
+    sum_word = word.map { |word| word.chars.sum { |word| word.ord - 'a'.ord } }
+    max_sum = sum_word.max
+
+    max_word = word[sum_word.index(max_sum)]
+    return max_word
 end
 
 puts highestScoreWord("lorem ipsum dolor sit amet") # 印出 ipsum
